@@ -1,0 +1,8 @@
+void DFS(int v, int known[], int G[][MAX])
+{
+	known[v] = 1;
+	for (int i = 0; i < MAX; i++)
+		if ((G[v][i] || G[i][v]) && !known[i])
+			DFS(i, known, G);
+}
+//深度优先搜索，v为当前查找顶点，know为已标记节点，max为最大顶点数，路径由G的二维数组进行存储
